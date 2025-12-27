@@ -78,9 +78,10 @@
                 if (!response.ok) throw new Error(data.error || "Server Error");
                 return data.text;
             } catch (err) {
-                console.error(err);
-                throw new Error("Failed to connect to backend. Is 'node server.js' running?");
-            }
+    console.error(err);
+    throw new Error(err.message || "Something went wrong. Please try again.");
+}
+
         };
 
         const AptitudeTest = () => {
